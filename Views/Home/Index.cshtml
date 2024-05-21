@@ -1,0 +1,25 @@
+﻿@* Index.cshtml *@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2 class="mt-5">Enter Text for Translation:</h2>
+    <input type="text" id="textToTranslate" class="form-control mb-3" placeholder="Type here...">
+    <button onclick="translateText()" class="btn btn-primary">Translate</button>
+    <div id="result" class="mt-3"></div>
+</div>
+<script>
+    function translateText() {
+        var text = $('#textToTranslate').val();
+        $.ajax({
+            type: 'POST',
+            url: '/Translation/Translate',
+            contentType: 'application/json',
+            data: JSON.stringify({ textToTranslate: text }),
+            success: function (response) {
+                $('#result').html('Translated Text: ' + response.result);
+            }
+        });
+    }
+</script>
