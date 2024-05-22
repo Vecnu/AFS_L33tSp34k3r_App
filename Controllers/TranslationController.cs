@@ -40,5 +40,6 @@ namespace AFS_L33tSp34k3r_App.Controllers
             var result = await _translatorService.TranslateAsync(request.TextToTranslate);
             return Json(new { result });
         }
+
     }
 }

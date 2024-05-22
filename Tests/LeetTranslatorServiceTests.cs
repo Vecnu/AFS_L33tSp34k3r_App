@@ -48,7 +48,7 @@ namespace AFS_L33tSp34k3r_App.Tests
         /// </summary>
         /// <returns></returns>
         [Fact]
-        public async Task TranslateAsync_ApiFailed_FallbackTranslation()
+        public async Task TranslateAsyncFallback()
         {
             // Arrange
             var mockHttpMessageHandler = new MockHttpMessageHandler();
@@ -74,7 +74,7 @@ namespace AFS_L33tSp34k3r_App.Tests
         /// Tests the <see cref="LeetTranslatorService.TranslateToLeet"/> method for correct translation to Leet Speak.
         /// </summary>
         [Fact]
-        public void TranslateToLeet_ValidInput_ReturnsCorrectTranslation()
+        public void TranslationValidation()
         {
             // Arrange
             var service = new LeetTranslatorService(null, null);
@@ -90,10 +90,10 @@ namespace AFS_L33tSp34k3r_App.Tests
 
 
         /// <summary>
-        /// Tests the <see cref="LeetTranslatorService.TranslateToLeet"/> method with an empty input string.
+        /// Tests the <see cref="LeetTranslatorService.TranslateToLeet"/> method with an empty input string. A bit redundant tho since empty strings are acceptable.
         /// </summary>
         [Fact]
-        public void TranslateToLeet_EmptyInput_ReturnsEmptyString()
+        public void TranslateToNullEmpty()
         {
             // Arrange
             var service = new LeetTranslatorService(null, null);
